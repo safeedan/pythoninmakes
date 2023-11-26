@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block body %}
+<center><BR><BR><BR><BR><BR><BR><BR><BR>
+    <div class="col-md-6">
+            <div class="shadow card">
+                <div class="card-body">
+<form method="post" class="p-3 shadow">
+    {% csrf_token %}
+    <p style="font-size:40px;"><b>are you sure this task is done??</b></p>
+    <button style="font-size:25px;color:white;height:60px;width:100px;" type="submit" class="btn btn-danger"><b>Yes</b></button>
+<!--    <a class="btn btn-success" href="{% url 'cancel'  %}" style="font-size:25px;color:white;height:60px;width:110px;"><b>Cancel</b></a>-->
+</form>
+                </div>
+            </div>
+    </div>
+</center>
+{% endblock %}

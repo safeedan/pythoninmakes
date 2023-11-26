@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="banner">
+                <div class="banner-text">
+                   <h1>To-Do List</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div><br>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+        <form method="post" class="p-3 shadow">
+            {% csrf_token %}
+            <div class="form-group">
+                <input class="form-control" type="text" name="task" placeholder="enter the task">
+            </div><br>
+            <div class="form-group">
+                <input class="form-control" type="text" name="priority" placeholder="enter the priority of task">
+            </div><br>
+            <div class="form-group">
+                <input class="form-control" type="date" name="date">
+            </div><br>
+            <center>
+            <BUTTON class="btn btn-success" type="submit" style="font-size:25px;color:white;height:60px;width:100px;"><B>Add</B></BUTTON>
+            </center>
+        </form>
+    </div>
+        <div class="col-md-6">
+           <h4> <b>Task To Be Completed</b></h4>
+            {% for i in task %}
+            <div class="shadow card">
+                <div class="card-body">
+                    <h5 class="card-title">{{i.name}}</h5>
+                    <p><b>{{i.priority}}</b></p>
+                    <p><b>{{i.date}}</b></p>
+                    <center>
+                    <a class="btn btn-success" href="{% url 'delete' i.id %}" style="font-size:20px;color:white;height:50px;width:100px;"><b>Done</b></a>
+                    <a class="btn btn-warning" href="{% url 'update' i.id %}" style="font-size:20px;color:DarkGreen;height:50px;width:100px;"><b>Change</b></a>
+                    </center>
+                </div>
+            </div><br>
+            {% endfor %}
+        </div>
+</div>
+</div>
+
+</body>
+</html>

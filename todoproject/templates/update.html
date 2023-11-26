@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block body %}
+<center><br><br>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <form style="font-size:20px;background-color:pink;" method="post" class="p-3 shadow">
+                {% csrf_token %}
+            <div class="form-group" >
+                  <h2 style="font-size:50px;font-family:Broadway;COLOR:white;">UPDATE</h2><br>
+                <div class="form-control" style="font-size:22px;"><br>
+                    {{form.as_p}}<br>
+                    <button style="font-size:20px;" class="btn btn-success" type="submit"><b>Update</b></button><br><br>
+                </div>
+            </div>
+<br><br>
+            </form>
+    </div>
+</div>
+</div>
+</center>
+{% endblock %}
